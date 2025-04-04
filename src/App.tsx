@@ -10,19 +10,20 @@ const images = [
 
 const App = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  
+  //const [isPlaying, setIsPlaying] = useState(true);
   const [heartCount, setHeartCount] = useState(0);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    if (isPlaying) {
-      const interval = setInterval(() => {
-        setCurrentImage((prev) => (prev + 1) % images.length);
-      }, 3000);
-      return () => clearInterval(interval);
-    }
-  }, [isPlaying]);
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+  
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
