@@ -1,168 +1,150 @@
-/* App.css atualizado com responsividade e estilo romântico */
-
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #8b3a62;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
+  color: white;
   overflow-x: hidden;
-  padding: 1rem;
 }
 
 .container {
-  max-width: 600px;
-  width: 100%;
   text-align: center;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 header h1 {
   font-size: 2.5rem;
-  color: white;
-  text-shadow: 0 0 10px #ff8ac9, 0 0 20px #ff8ac9;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
 .glow {
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #ff8ac9, 0 0 20px #ff8ac9;
-  }
-  to {
-    text-shadow: 0 0 20px #ff4fa6, 0 0 30px #ff4fa6;
-  }
+  text-shadow: 0 0 10px #ff9acb, 0 0 20px #ff9acb, 0 0 30px #ff9acb;
 }
 
 .gallery {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1/1;
-  margin: 0 auto 1rem;
-  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
 }
 
 .gallery-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.heart-counter {
-  margin-top: 1.5rem;
-  font-size: 1.3rem;
+.heart-counter p {
+  margin: 5px 0;
+  font-size: 1.2rem;
 }
 
 .heart-button {
-  font-size: 2rem;
-  background: none;
+  background-color: #ff69b4;
   border: none;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 20px;
   cursor: pointer;
-  margin-top: 0.5rem;
   transition: transform 0.2s;
 }
-
 .heart-button:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
 .music-controls {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
+  margin: 20px 0;
 }
 
 .music-button {
-  background-color: #ffd6e0;
+  background-color: #ff69b4;
+  color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 25px;
-  color: #8b3a62;
-  font-weight: bold;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 1rem;
 }
-
 .music-button:hover {
-  background-color: #ffc0cb;
+  background-color: #ff85c1;
 }
 
 .love-letter {
+  margin-top: 40px;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
+  padding: 20px;
   border-radius: 20px;
-  margin-top: 2rem;
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.4rem;
-  color: #fff;
-  text-shadow: 1px 1px 4px #000;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
-
-.gallery-controls {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+.love-letter h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
 }
-
-.gallery-controls button {
-  background-color: #fff;
-  color: #b83e68;
-  border: none;
-  border-radius: 10px;
-  padding: 0.5rem 1rem;
+.love-letter p {
   font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 0 10px #fff;
 }
 
-.gallery-controls button:hover {
-  background-color: #ffd6e0;
-}
-
-.falling-heart {
+.hearts-container {
   position: fixed;
-  top: -50px;
-  left: calc(100vw * var(--rand, 0.5));
-  animation: fall 5s linear infinite;
-  font-size: 1.5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 999;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  color: #ff9acb;
+  font-size: 24px;
+  animation: fall linear infinite;
+  animation-duration: 8s;
+  top: -10%;
+  left: calc(100% * var(--random-x));
+  opacity: 0.8;
+}
+
+.heart:nth-child(odd) {
+  animation-duration: 10s;
+}
+.heart:nth-child(even) {
+  animation-duration: 12s;
 }
 
 @keyframes fall {
-  to {
-    transform: translateY(100vh);
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
   }
 }
 
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 2rem;
+/* Responsividade */
+@media (max-width: 768px) {
+  .gallery-img {
+    max-width: 90%;
   }
 
-  .heart-counter {
-    font-size: 1.1rem;
+  .heart-button,
+  .music-button {
+    font-size: 1.5rem;
+    padding: 8px 16px;
   }
 
-  .music-controls button {
-    font-size: 0.9rem;
+  .love-letter h2 {
+    font-size: 1.5rem;
   }
 
-  .gallery-controls button {
+  .love-letter p {
     font-size: 1rem;
-    padding: 0.4rem 0.8rem;
   }
 }

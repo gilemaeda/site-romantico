@@ -1,5 +1,4 @@
-//import React, { useState, useEffect, useRef } from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 const images = [
@@ -11,9 +10,6 @@ const images = [
 
 const App = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  
-  //const [isPlaying, setIsPlaying] = useState(true);
   const [heartCount, setHeartCount] = useState(0);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -24,16 +20,10 @@ const App = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-  
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
-
-    if (isMusicPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
+    isMusicPlaying ? audioRef.current.pause() : audioRef.current.play();
     setIsMusicPlaying(!isMusicPlaying);
   };
 
@@ -72,9 +62,40 @@ const App = () => {
         </button>
       </div>
 
+      <div className="love-letter">
+        <h2>Carta de Amor</h2>
+        <p>
+          Minha linda Tayani, cada dia contigo é um presente. Espero que esse site seja um reflexo
+          do quanto você é especial pra mim 💕
+        </p>
+      </div>
+
       <audio ref={audioRef} loop>
         <source src="/music/romantic.mp3" type="audio/mp3" />
       </audio>
+
+      <div className="hearts-container">
+  {[...Array(30)].map((_, i) => {
+    const left = Math.random() * 100; // porcentagem
+    const delay = Math.random() * 10; // segundos
+    const size = 20 + Math.random() * 20; // px
+
+    return (
+      <div
+        key={i}
+        className="heart"
+        style={{
+          left: `${left}%`,
+          animationDelay: `${delay}s`,
+          fontSize: `${size}px`,
+        }}
+      >
+        ♥
+      </div>
+    );
+  })}
+</div>
+
     </div>
   );
 };
