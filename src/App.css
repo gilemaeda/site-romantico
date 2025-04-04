@@ -1,40 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+/* App.css atualizado com responsividade e estilo romântico */
 
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #8b3a62;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 1rem;
 }
 
 .container {
+  max-width: 600px;
+  width: 100%;
   text-align: center;
-  background-color: #b83e68; /* rosa escuro */
-  color: #fff;
-  min-height: 100vh;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 header h1 {
-  font-size: 2.8rem;
-  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
   color: white;
-  text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff69b4;
+  text-shadow: 0 0 10px #ff8ac9, 0 0 20px #ff8ac9;
   margin-bottom: 2rem;
 }
 
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff8ac9, 0 0 20px #ff8ac9;
+  }
+  to {
+    text-shadow: 0 0 20px #ff4fa6, 0 0 30px #ff4fa6;
+  }
+}
+
 .gallery {
-  width: 90%;
-  max-width: 300px;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1/1;
+  margin: 0 auto 1rem;
   border-radius: 15px;
+  overflow: hidden;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-  margin-bottom: 1.5rem;
 }
 
 .gallery-img {
@@ -45,84 +58,111 @@ header h1 {
 }
 
 .heart-counter {
+  margin-top: 1.5rem;
   font-size: 1.3rem;
-  margin-top: 1rem;
-  text-align: center;
-  max-width: 90%;
 }
 
 .heart-button {
-  margin-top: 0.8rem;
   font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
-  animation: float 1.5s infinite alternate;
+  margin-top: 0.5rem;
+  transition: transform 0.2s;
 }
 
-@keyframes float {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-10px);
-  }
+.heart-button:hover {
+  transform: scale(1.3);
 }
 
 .music-controls {
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.5rem;
   align-items: center;
-  width: 100%;
 }
 
 .music-button {
-  font-size: 1rem;
-  padding: 0.6rem 1.4rem;
+  background-color: #ffd6e0;
   border: none;
-  border-radius: 30px;
-  background-color: #ffb6c1;
-  color: #fff;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  color: #8b3a62;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
-  transition: background-color 0.3s ease;
-  width: 90%;
-  max-width: 250px;
+  transition: background-color 0.3s;
 }
 
 .music-button:hover {
-  background-color: #ff69b4;
+  background-color: #ffc0cb;
 }
 
-.music-button.restart {
-  background-color: #f08080;
+.love-letter {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin-top: 2rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.4rem;
+  color: #fff;
+  text-shadow: 1px 1px 4px #000;
 }
 
-.music-button.restart:hover {
-  background-color: #e75454;
+.gallery-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gallery-controls button {
+  background-color: #fff;
+  color: #b83e68;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #fff;
+}
+
+.gallery-controls button:hover {
+  background-color: #ffd6e0;
+}
+
+.falling-heart {
+  position: fixed;
+  top: -50px;
+  left: calc(100vw * var(--rand, 0.5));
+  animation: fall 5s linear infinite;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
 }
 
 @media (max-width: 600px) {
-  .gallery {
-    max-width: 90%;
-  }
-
   header h1 {
     font-size: 2rem;
   }
 
-  .heart-button {
-    font-size: 1.5rem;
-  }
-
   .heart-counter {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
-  .music-button {
+  .music-controls button {
     font-size: 0.9rem;
+  }
+
+  .gallery-controls button {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
   }
 }
