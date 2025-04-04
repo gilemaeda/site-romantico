@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 const images = [
@@ -23,9 +23,16 @@ const App = () => {
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
-    isMusicPlaying ? audioRef.current.pause() : audioRef.current.play();
+  
+    if (isMusicPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    
     setIsMusicPlaying(!isMusicPlaying);
   };
+  
 
   const restartMusic = () => {
     if (audioRef.current) {
