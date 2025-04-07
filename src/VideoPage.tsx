@@ -6,7 +6,7 @@ const VideoPage = () => {
   return (
     <div className="container">
       <header>
-        <h1 className="glow">Vídeo Especial 💖</h1>
+        <h1 className="glow">Vídeo Especial de 1 ano de namoro 💖</h1>
       </header>
 
       <div className="video-container">
