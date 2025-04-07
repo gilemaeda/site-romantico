@@ -1,7 +1,8 @@
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #e75480;
+  background-color: #a52a5a;
   color: white;
   text-align: center;
 }
@@ -14,8 +15,12 @@ body {
 
 header h1.glow {
   font-size: 2.5rem;
-  color: white;
-  text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+  color: #fff0f5;
+  text-shadow:
+    0 0 5px #ffb6c1,
+    0 0 10px #ffb6c1,
+    0 0 20px #fff,
+    0 0 30px #ffb6c1;
   margin-bottom: 30px;
 }
 
@@ -28,46 +33,40 @@ header h1.glow {
   max-height: 400px;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
 }
 
 .heart-counter {
   margin: 30px 0;
 }
 
-.heart-button {
-  background-color: #ff69b4;
-  color: white;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.heart-button:hover {
-  transform: scale(1.2);
-  background-color: #ff85c1;
-}
-
 .music-controls {
   margin: 20px 0;
 }
 
-.music-button {
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  margin: 5px;
+.music-button,
+.heart-button {
+  background-color: transparent;
+  border: 2px solid #ffb6c1;
+  color: #fff0f5;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff;
   padding: 10px 20px;
   border-radius: 20px;
+  margin: 5px;
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: 0 0 5px #ffb6c1, 0 0 10px #ffb6c1;
+  transition: all 0.3s ease;
 }
-.music-button:hover {
-  background-color: #ff85c1;
+
+.music-button:hover,
+.heart-button:hover {
+  background-color: #ffb6c1;
+  color: #a52a5a;
+  text-shadow: none;
+  box-shadow: 0 0 15px #ffb6c1;
+  transform: scale(1.05);
 }
 
 .love-letter {
@@ -76,6 +75,8 @@ header h1.glow {
   margin-top: 30px;
   border-radius: 15px;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #fff0f5;
+  text-shadow: 0 0 3px #fff;
 }
 
 .hearts-container {
@@ -92,7 +93,8 @@ header h1.glow {
   position: absolute;
   top: -2rem;
   animation: fall 10s linear infinite;
-  color: #ff69b4;
+  color: #ffb6c1;
+  text-shadow: 0 0 5px #ffb6c1;
   opacity: 0.8;
 }
 
@@ -106,12 +108,12 @@ header h1.glow {
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
-  padding-top: 25px;
   height: 0;
   overflow: hidden;
+  max-width: 100%;
+  margin: 20px 0;
   border-radius: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .video-container iframe {
@@ -138,23 +140,4 @@ header h1.glow {
   header h1.glow {
     font-size: 2rem;
   }
-}
-
-
-
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  margin: 20px 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
